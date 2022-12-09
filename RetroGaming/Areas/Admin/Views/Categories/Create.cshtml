@@ -1,0 +1,59 @@
+﻿@model RetroGaming.Models.Category
+
+@{
+  ViewData[ "Title" ] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Category</h4>
+<hr />
+<div class="container">
+  <div class="row">
+
+    <div class="col-6">
+      <partial name="UploadImagePartial" />
+    </div>
+
+    @if (ViewBag.ImageUri != null)
+    {
+      <div>
+        <img class="img-thumbnail w-25 h-auto" src="@ViewBag.ImageUri" />
+      </div>
+    }
+
+    <div>
+      <form class="row" asp-action="Create" formenctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+          <label asp-for="Name" class="control-label"></label>
+          <input asp-for="Name" class="form-control" />
+          <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <label asp-for="Description" class="control-label"></label>
+          <input asp-for="Description" class="form-control" />
+          <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <label asp-for="ImagePath" class="control-label"></label>
+          <input type="hidden" asp-for="ImagePath" class="form-control" placeholder="@ViewBag.ImageUri" value="@ViewBag.ImageUri" />
+          <span asp-validation-for="ImagePath" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div>
+  <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}

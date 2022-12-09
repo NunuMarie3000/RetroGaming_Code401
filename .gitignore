@@ -348,3 +348,10 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+#migrations
+20221209012036_AddAdminAccount.cs
+20221209014052_AddEditorAccount.cs
+/RetroGaming/appsettings.json
+/RetroGaming/appsettings.json/appsettings.Development.json
+/RetroGaming/appsettings.json
